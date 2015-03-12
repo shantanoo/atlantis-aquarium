@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER appsplat-team@ooyala.com
 
 RUN apt-get update
@@ -7,7 +7,7 @@ RUN rm -rf /etc/service/rsyslog
 ENV SSHD_PORT 22
 
 # Add sshd to /etc/service
-RUN mkdir /etc/service/sshd /var/log/sshd
+RUN mkdir -p /etc/service/sshd /var/log/sshd
 ADD sshd /etc/service/sshd
 
 # TODO(edanaher): Do this dynamically based on gateway, if 3128 responds.
